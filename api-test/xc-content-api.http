@@ -1,0 +1,58 @@
+### 查询课程信息
+POST {{gateway_host}}/content/course/list?pageNo=1&pageSize=2
+Content-Type: application/json
+
+{
+  "auditStatus": "202004",
+  "courseName": "java",
+  "publishStatus": "203001"
+}
+
+### 查询课程分类
+GET {{content_host}}/content/course-category/tree-nodes
+
+### 新增课程
+POST {{content_host}}/content/course
+Content-Type: application/json
+
+{
+  "charge": "201001",
+  "price": 10,
+  "originalPrice":100,
+  "qq": "22333",
+  "wechat": "223344",
+  "phone": "13333333",
+  "validDays": 365,
+  "mt": "1-1",
+  "st": "1-1-1",
+  "name": "",
+  "pic": "fdsf",
+  "teachmode": "200002",
+  "users": "初级人员",
+  "tags": "tagstagstags",
+  "grade": "204001",
+  "description": "java网络编程高级java网络编程高级java网络编程高级"
+}
+
+### 课程查询
+GET {{gateway_host}}/content/course/40
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctcGx1cyJdLCJ1c2VyX25hbWUiOiJ7XCJjb21wYW55SWRcIjpcIjEyMzIxNDE0MjVcIixcImNyZWF0ZVRpbWVcIjpcIjIwMjItMDktMjhUMDg6MzI6MDNcIixcImlkXCI6XCI1MlwiLFwibmFtZVwiOlwiTeiAgeW4iFwiLFwicGVybWlzc2lvbnNcIjpbXCJ4Y190ZWFjaG1hbmFnZXJcIixcInhjX3RlYWNobWFuYWdlcl9jb3Vyc2VcIixcInhjX3RlYWNobWFuYWdlcl9jb3Vyc2VfYWRkXCIsXCJ4Y190ZWFjaG1hbmFnZXJfY291cnNlX2RlbFwiLFwieGNfdGVhY2htYW5hZ2VyX2NvdXJzZV9tYXJrZXRcIixcInhjX3RlYWNobWFuYWdlcl9jb3Vyc2VfYmFzZVwiLFwieGNfdGVhY2htYW5hZ2VyX2NvdXJzZV9wbGFuXCIsXCJ4Y190ZWFjaG1hbmFnZXJfY291cnNlX3B1Ymxpc2hcIixcInhjX3RlYWNobWFuYWdlcl9jb3Vyc2VfbGlzdFwiXSxcInNleFwiOlwiMVwiLFwic3RhdHVzXCI6XCJcIixcInVzZXJuYW1lXCI6XCJ0MVwiLFwidXR5cGVcIjpcIjEwMTAwMlwifSIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE3NjM0NTY3ODksImF1dGhvcml0aWVzIjpbInhjX3RlYWNobWFuYWdlcl9jb3Vyc2VfYmFzZSIsInhjX3RlYWNobWFuYWdlcl9jb3Vyc2VfZGVsIiwieGNfdGVhY2htYW5hZ2VyX2NvdXJzZV9saXN0IiwieGNfdGVhY2htYW5hZ2VyX2NvdXJzZV9wbGFuIiwieGNfdGVhY2htYW5hZ2VyX2NvdXJzZSIsInhjX3RlYWNobWFuYWdlciIsInhjX3RlYWNobWFuYWdlcl9jb3Vyc2VfbWFya2V0IiwieGNfdGVhY2htYW5hZ2VyX2NvdXJzZV9wdWJsaXNoIiwieGNfdGVhY2htYW5hZ2VyX2NvdXJzZV9hZGQiXSwianRpIjoiNGQ5YTA0NjYtZDJlZS00NmY5LWFkMzItOTk1ZmY1ZGNhMGUzIiwiY2xpZW50X2lkIjoiWGNXZWJBcHAifQ.djL8EUg0VBH9u7A8woCAfc9lWc4gl02lDhEFlecCa2w
+
+### 课程计划查询
+GET {{gateway_host}}/content/teachplan/117/tree-nodes
+Content-Type: application/json
+
+### 第二步申请令牌
+POST {{auth_host}}/auth/oauth/token?client_id=XcWebApp&client_secret=XcWebApp&grant_type=authorization_code&code=5Jgg61&redirect_uri=http://www.51xuecheng.cn
+
+
+### 密码模式
+POST {{auth_host}}/auth/oauth/token?client_id=XcWebApp&client_secret=XcWebApp&grant_type=password&username={"username":"t1","password":"111111","authType":"password"}
+
+
+###校验jwt令牌
+POST {{auth_host}}/auth/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctcGx1cyJdLCJ1c2VyX25hbWUiOiJ7XCJjcmVhdGVUaW1lXCI6XCIyMDI1LTA5LTE5VDE2OjEwOjM1XCIsXCJpZFwiOlwiNDE3OTUwNmYtODBlOC00NWRjLWIzNDAtMWRlMmNkMzRiN2EwXCIsXCJuYW1lXCI6XCLlpJzlsI_ms6pcIixcIm5pY2tuYW1lXCI6XCLlpJzlsI_ms6pcIixcInBlcm1pc3Npb25zXCI6W1wieGNfc3lzbWFuYWdlclwiLFwieGNfc3lzbWFuYWdlcl9kb2NcIixcInhjX3N5c21hbmFnZXJfbG9nXCIsXCJ4Y19zeXNtYW5hZ2VyX2NvbXBhbnlcIixcInhjX3RlYWNobWFuYWdlcl9jb3Vyc2VfbGlzdFwiXSxcInN0YXR1c1wiOlwiMVwiLFwidXNlcm5hbWVcIjpcIm9XZ0d6MUhLUHNEQk9Wam1SR3Y0b2djUTljTUVcIixcInVzZXJwaWNcIjpcImh0dHBzOi8vdGhpcmR3eC5xbG9nby5jbi9tbW9wZW4vdmlfMzIvZGZ1Q0ZJTHpwRW5YOVZUY3hMNzVHRExPMFFyaWNGUHFwQ0pLb1JHcU54Nkh5RFhuMmJ3RDIxYTlhUGU1ckx5Vm9DdGw5ZnFHYjlNMFh2T3QyakFhaWNIdy8xMzJcIixcInV0eXBlXCI6XCIxMDEwMDFcIixcInd4VW5pb25pZFwiOlwib1dnR3oxSEtQc0RCT1ZqbVJHdjRvZ2NROWNNRVwifSIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE3NTgyODIzODMsImF1dGhvcml0aWVzIjpbInhjX3N5c21hbmFnZXJfZG9jIiwieGNfdGVhY2htYW5hZ2VyX2NvdXJzZV9saXN0IiwieGNfc3lzbWFuYWdlciIsInhjX3N5c21hbmFnZXJfY29tcGFueSIsInhjX3N5c21hbmFnZXJfbG9nIl0sImp0aSI6IjIwMWQ3ZGFlLWNjYWEtNDI4OC04MWQzLWFiZjJiNmY0ZjZkYSIsImNsaWVudF9pZCI6IlhjV2ViQXBwIn0.wqxdyRxadi8TylHyUKiOpPKe0BA4TrQtcqahSK75pmI
+
+
+### 申请验证码
+POST {{checkcode_host}}/checkcode/pic
